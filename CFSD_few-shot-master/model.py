@@ -106,14 +106,14 @@ class Bottleneck(nn.Module):
         return out
 
 
-class PoseMSMetaResNet(nn.Module):
+class CFSD_CCKG(nn.Module):
 
     def __init__(self, num_layers, block, layers, heads, filters, min_image_size, default_resolution, down_ratio):
         self.inplanes = 64
         self.deconv_with_bias = False
         self.heads = heads
 
-        super(PoseMSMetaResNet, self).__init__()
+        super(CFSD_CCKG, self).__init__()
         self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3,
                                bias=False)
         self.bn1 = nn.BatchNorm2d(64, momentum=BN_MOMENTUM)
@@ -301,17 +301,17 @@ class PoseMSMetaResNet(nn.Module):
         x = x.contiguous().view(x.shape[0], x.shape[1] * x.shape[2], x.shape[3])
         return x
 
-    def forward_multi_class(self, x, y_codes):
+    def forward_multi_class(self, x, y_kernels):
         """
             x: batch of images
-            y_codes: list of per-category y_code
+            y_kernels: list of per-category y_kernel
         """
 
         x = self.extract_features(x)
         ret = {}
         ret['hm'] = []
-        for y_code in y_codes:
-            meta = self.meta.apply_code(x, y_code)
+        for y_kernel in y_kernels:
+            meta = self.meta.apply_kernel(x, y_kernel)
             ret['hm'].append(meta[:, :, :, :])
         ret['hm'] = torch.cat(ret['hm'], dim=1)
         ret['reg'] = self.wid(x)
@@ -320,8 +320,8 @@ class PoseMSMetaResNet(nn.Module):
         return [ret]
 
     def precompute_multi_class(self, y_list):
-        y_code_list = self.__getattr__('meta').extract_support_code(y_list)
-        return y_code_list
+        y_kernel_list = self.__getattr__('meta').extract_support_kernel(y_list)
+        return y_kernel_list
 
     def init_weights(self, num_layers, pretrained=True):
         print('BASE => init resnet deconv weights from normal distribution')
@@ -472,7 +472,7 @@ class CCKG(nn.Module):
     def forward(self, y, x_rw):  # y: support set, x: feature map
         o_list = []
         y = y.view(-1, y.size(2), y.size(3), y.size(4), y.size(5))  # [B*n_cls,n-shot,c,y,x]
-        y_list = self.extract_support_code(y)  # for batch of support sets, [B*n_cls,c_new]
+        y_list = self.extract_support_kernel(y)  # for batch of support sets, [B*n_cls,c_new]
         for i in range(3):
             out_ch = self.out_ch[i]
             y_attri = y_list[i]
@@ -480,19 +480,19 @@ class CCKG(nn.Module):
             B = x_attri.size(0)
             C = x_attri.size(1)  # n_cls
             y_attri = y_attri.view(B, C, y_attri.size(1))
-            o_list.append(self.apply_code(x_attri, y_attri, out_ch))  # each corresponding image x_i to y_i
+            o_list.append(self.apply_kernel(x_attri, y_attri, out_ch))  # each corresponding image x_i to y_i
         o = torch.cat(o_list, dim=2)
         return o
 
-    def apply_code(self, x, y_code, out_ch):  # x:[B,n_cls,C,y,x], y_code:[B,n_cls,c_new]
+    def apply_kernel(self, x, y_kernel, out_ch):  # x:[B,n_cls,C,y,x], y_kernel:[B,n_cls,c_new]
         batch_size = x.size(0)
 
         outs = []
         for xi in range(x.size(1)):
-            for yi in range(y_code.size(1)):
+            for yi in range(y_kernel.size(1)):
                 out = torch.nn.functional.conv1d(
                     x[:, xi, :, :, :].contiguous().view(1, batch_size * self.feat_dim * x.size(3), x.size(4)),
-                    y_code[:, yi, :].contiguous().view(batch_size * out_ch, self.feat_dim * 1, 1),
+                    y_kernel[:, yi, :].contiguous().view(batch_size * out_ch, self.feat_dim * 1, 1),
                     groups=batch_size,
                 )  # [1,B*256*1,x] * [B*out_ch,256*1,1] --> [B*out_ch,x]
                 out = out.view(batch_size, out_ch, 1, out.size(-1))  # [B*out_ch,x] --> [B,out_ch,1,x]
@@ -500,7 +500,7 @@ class CCKG(nn.Module):
         outs = torch.stack(outs, dim=1)  # [B,n_cls,out_ch,y,x]
         return outs
 
-    def extract_support_code(self, y):
+    def extract_support_kernel(self, y):
         y_list = []
         conv_list = [self.conv_0, self.conv_1, self.conv_2]
         for i in range(3):
@@ -563,7 +563,7 @@ resnet_spec = {10: (BasicBlock, [2, 2]),
 def get_pose_net(num_layers, heads, head_filters, min_image_size, down_ratio, default_resolution):
     block_class, layers = resnet_spec[num_layers]
 
-    model = PoseMSMetaResNet(num_layers, block_class, layers, heads, filters=head_filters,
+    model = CFSD_CCKG(num_layers, block_class, layers, heads, filters=head_filters,
                              min_image_size=min_image_size, down_ratio=down_ratio,
                              default_resolution=default_resolution)
     model.init_weights(num_layers, pretrained=False)
