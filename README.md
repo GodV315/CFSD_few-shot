@@ -13,7 +13,7 @@ You can directly run the 'data_generate/main.m' to generate wideband waves and a
 * Each generated wave contains multiple narrowband signals, and each annotation txt contains the start time, end time (multiplied by 1e7), start frequency, end frequency, and class of each narrowband signal.
 * Signal classes contain: '2FSK', '4FSK', '8FSK', 'GMSK', 'PSK', 'Morse', 'AM-DSB', 'AM-USB', 'AM-LSB', 'FM', 'LFM', '8-Tone', '16-Tone', more than in the paper.
 * The class 'AM-DSB', 'AM-USB', 'AM-LSB', and 'FM' modulate the songs in the folder 'data_generate/songs', where we put a song as an example.
-* Generating wideband wav needs to add real backgrounds, and we put 5 background waves in the folder 'data_generate/backgrounds' as examples. You can add your own background files. We limit the background file to be larger than 5 s and 125 kHz.
+* Generating wideband waves needs to add real backgrounds, and we put 5 background waves in the folder 'data_generate/backgrounds' as examples. You can add your own background files. We limit the background file to be larger than 5 s and 125 kHz.
 ### model file
 The file 'CFSD_few-shot-master/model.py' contains the model code of CFSD + CCKG in the paper. You can train it according to the three-stage procedure in the paper. For training:
 * stage 1 (Base Detector Training) updates all parameters except 'self.meta.parameters()' in the file.
