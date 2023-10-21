@@ -1,0 +1,5 @@
+{"FreqD":1584,"FreqU":3924,"DateTimeStart":1.81682E+7,"DateTimeEnd":4.90262E+7,"Content":"8-Tone"}
+{"FreqD":8724,"FreqU":11724,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"FM"}
+{"FreqD":21620,"FreqU":21790,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"Morse"}
+{"FreqD":29316,"FreqU":29737,"DateTimeStart":102000,"DateTimeEnd":4.87844E+7,"Content":"2FSK"}
+{"FreqD":34824,"FreqU":35179,"DateTimeStart":8.1182E+6,"DateTimeEnd":3.72494E+7,"Content":"2FSK"}

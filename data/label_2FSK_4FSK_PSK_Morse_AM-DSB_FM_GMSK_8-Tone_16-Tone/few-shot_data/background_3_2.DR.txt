@@ -1,0 +1,3 @@
+{"FreqD":7706,"FreqU":8021,"DateTimeStart":6.8554E+6,"DateTimeEnd":3.00734E+7,"Content":"2FSK"}
+{"FreqD":14000,"FreqU":17000,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"FM"}
+{"FreqD":26250,"FreqU":32650,"DateTimeStart":4.0516E+6,"DateTimeEnd":4.01076E+7,"Content":"PSK"}

@@ -1,0 +1,6 @@
+{"FreqD":1213,"FreqU":7613,"DateTimeStart":9.209E+6,"DateTimeEnd":4.7317E+7,"Content":"PSK"}
+{"FreqD":12843,"FreqU":13842,"DateTimeStart":7.25E+6,"DateTimeEnd":4.6025E+7,"Content":"GMSK"}
+{"FreqD":15685,"FreqU":16636,"DateTimeStart":232600,"DateTimeEnd":3.12662E+7,"Content":"4FSK"}
+{"FreqD":22663,"FreqU":22833,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"Morse"}
+{"FreqD":27482,"FreqU":28384,"DateTimeStart":2.1324E+6,"DateTimeEnd":4.91934E+7,"Content":"4FSK"}
+{"FreqD":37646,"FreqU":40846,"DateTimeStart":1.8394E+6,"DateTimeEnd":3.8623E+7,"Content":"PSK"}

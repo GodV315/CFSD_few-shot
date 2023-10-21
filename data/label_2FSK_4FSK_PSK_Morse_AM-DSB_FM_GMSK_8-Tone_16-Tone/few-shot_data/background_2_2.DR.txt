@@ -1,0 +1,5 @@
+{"FreqD":4703,"FreqU":5655,"DateTimeStart":352400,"DateTimeEnd":2.58642E+7,"Content":"4FSK"}
+{"FreqD":7550,"FreqU":20350,"DateTimeStart":1.33066E+7,"DateTimeEnd":4.96056E+7,"Content":"PSK"}
+{"FreqD":23936,"FreqU":27136,"DateTimeStart":1.0528E+6,"DateTimeEnd":4.94662E+7,"Content":"PSK"}
+{"FreqD":36093,"FreqU":36507,"DateTimeStart":6.4278E+6,"DateTimeEnd":4.47458E+7,"Content":"2FSK"}
+{"FreqD":42300,"FreqU":43100,"DateTimeStart":771800,"DateTimeEnd":3.98118E+7,"Content":"4FSK"}

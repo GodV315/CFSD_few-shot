@@ -1,0 +1,5 @@
+{"FreqD":1508,"FreqU":5018,"DateTimeStart":1.53894E+7,"DateTimeEnd":4.33562E+7,"Content":"8-Tone"}
+{"FreqD":14484,"FreqU":18829,"DateTimeStart":1.22522E+7,"DateTimeEnd":4.40112E+7,"Content":"16-Tone"}
+{"FreqD":23357,"FreqU":28357,"DateTimeStart":1.28496E+7,"DateTimeEnd":4.70788E+7,"Content":"AM-DSB"}
+{"FreqD":37104,"FreqU":40104,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"FM"}
+{"FreqD":42521,"FreqU":46421,"DateTimeStart":7.7828E+6,"DateTimeEnd":3.37328E+7,"Content":"8-Tone"}

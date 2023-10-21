@@ -1,0 +1,4 @@
+{"FreqD":4422,"FreqU":9422,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"FM"}
+{"FreqD":16962,"FreqU":24962,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"FM"}
+{"FreqD":33045,"FreqU":34019,"DateTimeStart":1.09684E+7,"DateTimeEnd":3.14644E+7,"Content":"4FSK"}
+{"FreqD":42616,"FreqU":48146,"DateTimeStart":4.159E+6,"DateTimeEnd":4.53568E+7,"Content":"16-Tone"}

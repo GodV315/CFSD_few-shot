@@ -1,0 +1,5 @@
+{"FreqD":8988,"FreqU":9966,"DateTimeStart":457200,"DateTimeEnd":2.75724E+7,"Content":"4FSK"}
+{"FreqD":13685,"FreqU":14043,"DateTimeStart":1.96348E+7,"DateTimeEnd":4.88878E+7,"Content":"2FSK"}
+{"FreqD":17425,"FreqU":23425,"DateTimeStart":8.2394E+6,"DateTimeEnd":4.48868E+7,"Content":"AM-DSB"}
+{"FreqD":32135,"FreqU":33497,"DateTimeStart":1.57554E+7,"DateTimeEnd":3.66004E+7,"Content":"GMSK"}
+{"FreqD":35231,"FreqU":36164,"DateTimeStart":1.688E+6,"DateTimeEnd":2.82308E+7,"Content":"4FSK"}

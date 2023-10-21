@@ -1,0 +1,6 @@
+{"FreqD":2492,"FreqU":6492,"DateTimeStart":1.4388E+6,"DateTimeEnd":3.86782E+7,"Content":"AM-DSB"}
+{"FreqD":13419,"FreqU":13793,"DateTimeStart":3.805E+6,"DateTimeEnd":2.6009E+7,"Content":"2FSK"}
+{"FreqD":18483,"FreqU":18653,"DateTimeStart":2.4678E+6,"DateTimeEnd":2.93198E+7,"Content":"Morse"}
+{"FreqD":22460,"FreqU":22931,"DateTimeStart":6.6072E+6,"DateTimeEnd":4.61982E+7,"Content":"GMSK"}
+{"FreqD":28936,"FreqU":37936,"DateTimeStart":0,"DateTimeEnd":5.0E+7,"Content":"FM"}
+{"FreqD":40838,"FreqU":48343,"DateTimeStart":9.185E+6,"DateTimeEnd":4.56368E+7,"Content":"16-Tone"}
